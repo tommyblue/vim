@@ -24,6 +24,14 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tomtom/tcomment_vim.git'
 Bundle 'tpope/vim-rails.git'
 Bundle 'tpope/vim-surround.git'
+Bundle 'rstacruz/sparkup.git'
+Bundle 'Lokaltog/vim-easymotion.git'
+Bundle 'Raimondi/delimitMate.git'
+Bundle 'docunext/closetag.vim.git'
+Bundle 'majutsushi/tagbar'
+Bundle 'ervandew/supertab.git'
+Bundle 'vim-scripts/Better-CSS-Syntax-for-Vim.git'
+
 " vim-scripts repos
 Bundle 'L9' 
 Bundle 'FuzzyFinder'
@@ -54,11 +62,14 @@ set hlsearch    "hilight searches by default
 set guioptions-=T
 
 "indent settings
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set expandtab
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set cindent
+set smartindent
 set autoindent
+set expandtab
+set cinkeys=0{,0},:,0#,!,!^F
 
 "folding settings
 set foldmethod=indent   "fold based on indent
@@ -92,6 +103,10 @@ nmap <Down> gj
 nmap <Up> gk
 set fo=l
 
+" Tagbar
+let g:tagbar_usearrows = 1
+nnoremap <leader>l :TagbarToggle<CR>
+
 "statusline setup
 set statusline=%f       "tail of the filename
 
@@ -99,7 +114,7 @@ set statusline=%f       "tail of the filename
 set statusline+=%{fugitive#statusline()}
 
 "RVM
-"set statusline+=%{exists('g:loaded_rvm')?rvm#statusline():''}
+set statusline+=%{exists('g:loaded_rvm')?rvm#statusline():''}
 
 set statusline+=%=      "left/right separator
 set statusline+=%c,     "cursor column
@@ -109,6 +124,9 @@ set laststatus=2
 
 "turn off needless toolbar on gvim/mvim
 set guioptions-=T
+
+" Supertab with OmniComplete (http://mirnazim.org/writings/vim-plugins-i-use/)
+let g:SuperTabDefaultCompletionType = "context"
 
 " Color scheme
 if has("gui_running")
