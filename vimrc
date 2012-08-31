@@ -29,7 +29,6 @@ Bundle 'Lokaltog/vim-easymotion.git'
 Bundle 'Raimondi/delimitMate.git'
 Bundle 'docunext/closetag.vim.git'
 Bundle 'majutsushi/tagbar'
-Bundle 'ervandew/supertab.git'
 Bundle 'vim-scripts/Better-CSS-Syntax-for-Vim.git'
 
 " vim-scripts repos
@@ -57,6 +56,7 @@ set showmode    "show current mode down the bottom
 
 set incsearch   "find the next match as we type the search
 set hlsearch    "hilight searches by default
+set ignorecase  "case-insensitive search
 
 "turn off needless toolbar on gvim/mvim
 set guioptions-=T

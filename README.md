@@ -4,7 +4,13 @@ In questo repository trovate le configurazioni del mio Vim. Per utilizzarlo clon
 
   git clone git@github.com:tommyblue/vim.git ~/.git/
 
-dopodichè create il file *~/.vimrc* con questo contenuto:
+aggiornate i moduli git:
+
+  cd ~/.vim/
+  git submodule init
+  git submodule update
+
+Aprite vim e lanciate `:BundleInstall` per installare il necessario dopodichè create il file *~/.vimrc* con questo contenuto:
 
 	source ~/.vim/vimrc
 
