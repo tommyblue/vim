@@ -2,6 +2,8 @@
 
 In questo repository trovate le configurazioni del mio Vim. Per utilizzarlo clonate il repository:
 
+  git clone git@github.com:tommyblue/vim.git ~/.git/
+
 dopodichè create il file *~/.vimrc* con questo contenuto:
 
 	source ~/.vim/vimrc
