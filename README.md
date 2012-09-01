@@ -22,4 +22,4 @@ Per installare SuperTab bisogna scaricare il file `vba` da [http://www.vim.org/s
 
     :so %
 
-Per le istruzioni su come compilare i vari plugin (in particolare Command-T che potrebbe causare un Segmentation Fault di Vim se non compilato), seguite [le istruzioni nel mio blog](http://www.tommyblue.it/).
+Per le istruzioni su come compilare i vari plugin (in particolare Command-T che potrebbe causare un Segmentation Fault di Vim se non compilato), seguite [le istruzioni nel mio blog](http://tommyblue.it/2012/09/01/passare-a-vim-grazie-ad-emacs).
