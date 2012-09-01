@@ -69,7 +69,6 @@ set cindent
 set smartindent
 set autoindent
 set expandtab
-set cinkeys=0{,0},:,0#,!,!^F
 
 "folding settings
 set foldmethod=indent   "fold based on indent
@@ -107,6 +106,10 @@ set fo=l
 let g:tagbar_usearrows = 1
 nnoremap <leader>l :TagbarToggle<CR>
 
+" Vim tabs navigation
+nmap <leader>] :tabn<CR>
+nmap <leader>[ :tabp<CR>
+
 "statusline setup
 set statusline=%f       "tail of the filename
 
@@ -115,6 +118,10 @@ set statusline+=%{fugitive#statusline()}
 
 "RVM
 set statusline+=%{exists('g:loaded_rvm')?rvm#statusline():''}
+
+" Rails
+autocmd User Rails let b:surround_{char2nr('-')} = "<% \r %>" " displays <% %> correctly
+:set cpoptions+=$ " puts a $ marker for the end of words/lines in cw/c$ commands
 
 set statusline+=%=      "left/right separator
 set statusline+=%c,     "cursor column
@@ -133,14 +140,14 @@ if has("gui_running")
     "tell the term has 256 colors
     set t_Co=256
 
-    colorscheme railscasts
+    colorscheme codeschool
     set guitablabel=%M%t
     set lines=40
     set columns=115
 
     if has("gui_gnome")
         set term=gnome-256color
-        colorscheme railscasts
+        colorscheme codeschool
         set guifont=Monospace\ Bold\ 12
     endif
 
@@ -161,14 +168,14 @@ else
     "dont load csapprox if there is no gui support - silences an annoying warning
     let g:CSApprox_loaded = 1
 
-    "set railscasts colorscheme when running vim in gnome terminal
+    "set codeschool colorscheme when running vim in gnome terminal
     if $COLORTERM == 'gnome-terminal'
         set term=gnome-256color
-        colorscheme railscasts
+        colorscheme codeschool
     else
         if $TERM == 'xterm'
             set term=xterm-256color
-            colorscheme railscasts
+            colorscheme codeschool
         else
             colorscheme default
         endif
