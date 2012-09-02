@@ -1,6 +1,6 @@
 "necessary on some Linux distros for pathogen to properly load bundles
 filetype on
-filetype off
+"filetype off
 
 "load pathogen managed plugins
 call pathogen#infect()
@@ -105,6 +105,9 @@ set fo=l
 " Tagbar
 let g:tagbar_usearrows = 1
 nnoremap <leader>l :TagbarToggle<CR>
+"autocmd FileType rb nested :TagbarOpen
+"autocmd VimEnter * nested :TagbarOpen
+autocmd BufEnter * nested :call tagbar#autoopen(0)
 
 " Vim tabs navigation
 nmap <leader>] :tabn<CR>
@@ -135,6 +138,7 @@ set guioptions-=T
 " Supertab with OmniComplete (http://mirnazim.org/writings/vim-plugins-i-use/)
 let g:SuperTabDefaultCompletionType = "context"
 
+
 " Color scheme
 if has("gui_running")
     "tell the term has 256 colors
@@ -142,8 +146,8 @@ if has("gui_running")
 
     colorscheme codeschool
     set guitablabel=%M%t
-    set lines=40
-    set columns=115
+    set lines=999
+    set columns=999
 
     if has("gui_gnome")
         set term=gnome-256color
