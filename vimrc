@@ -1,6 +1,9 @@
+"avoiding annoying CSApprox warning message
+let g:CSApprox_verbose_level = 0
+
 "necessary on some Linux distros for pathogen to properly load bundles
 filetype on
-"filetype off
+filetype off
 
 "load pathogen managed plugins
 call pathogen#infect()
@@ -15,7 +18,7 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " let Vundle manage Vundle
-" required! 
+" required!
 Bundle 'gmarik/vundle'
 
 " github
@@ -32,7 +35,7 @@ Bundle 'majutsushi/tagbar'
 Bundle 'vim-scripts/Better-CSS-Syntax-for-Vim.git'
 
 " vim-scripts repos
-Bundle 'L9' 
+Bundle 'L9'
 Bundle 'FuzzyFinder'
 " non github repos
 Bundle 'git://git.wincent.com/command-t.git'
@@ -45,6 +48,9 @@ map <leader>c <c-_><c-_>
 "Use Vim settings, rather then Vi settings (much better!).
 "This must be first, because it changes other options as a side effect.
 set nocompatible
+
+"Line numbers
+set number
 
 "allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -79,6 +85,9 @@ set wildmode=list:longest   "make cmdline tab completion similar to bash
 set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
 set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
 
+"mark syntax errors with :signs
+let g:syntastic_enable_signs=1
+
 " NERDTree settings
 nmap wm :NERDTree<cr>
 let NERDTreeIgnore=['\.swp$']
@@ -108,6 +117,7 @@ nnoremap <leader>l :TagbarToggle<CR>
 "autocmd FileType rb nested :TagbarOpen
 "autocmd VimEnter * nested :TagbarOpen
 autocmd BufEnter * nested :call tagbar#autoopen(0)
+"autocmd BufLeave * nested :call tagbar#autoclose
 
 " Vim tabs navigation
 nmap <leader>] :tabn<CR>
@@ -135,9 +145,68 @@ set laststatus=2
 "turn off needless toolbar on gvim/mvim
 set guioptions-=T
 
-" Supertab with OmniComplete (http://mirnazim.org/writings/vim-plugins-i-use/)
-let g:SuperTabDefaultCompletionType = "context"
+" when press { + Enter, the {} block will expand.
+imap {<CR> {}<ESC>i<CR><ESC>O
 
+" Supertab with OmniComplete (http://mirnazim.org/writings/vim-plugins-i-use/)
+"let g:SuperTabDefaultCompletionType = "context"
+
+"jump to last cursor position when opening a file
+"dont do it when writing a commit log entry
+autocmd BufReadPost * call SetCursorPosition()
+function! SetCursorPosition()
+    if &filetype !~ 'commit\c'
+        if line("'\"") > 0 && line("'\"") <= line("$")
+            exe "normal! g`\""
+            normal! zz
+        endif
+    end
+endfunction
+
+" Strip trailing whitespace
+function! <SID>StripTrailingWhitespaces()
+    " Preparation: save last search, and cursor position.
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    " Do the business:
+    %s/\s\+$//e
+    " Clean up: restore previous search history, and cursor position
+    let @/=_s
+    call cursor(l, c)
+endfunction
+autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
+
+"snipmate setup
+try
+  source ~/.vim/snippets/support_functions.vim
+catch
+  source ~/vimfiles/snippets/support_functions.vim
+endtry
+autocmd vimenter * call s:SetupSnippets()
+function! s:SetupSnippets()
+
+    "if we're in a rails env then read in the rails snippets
+    if filereadable("./config/environment.rb")
+      try
+        call ExtractSnips("~/.vim/snippets/ruby-rails", "ruby")
+        call ExtractSnips("~/.vim/snippets/eruby-rails", "eruby")
+      catch
+        call ExtractSnips("~/vimfiles/snippets/ruby-rails", "ruby")
+        call ExtractSnips("~/vimfiles/snippets/eruby-rails", "eruby")
+      endtry
+    endif
+
+    try
+      call ExtractSnips("~/.vim/snippets/html", "eruby")
+      call ExtractSnips("~/.vim/snippets/html", "xhtml")
+      call ExtractSnips("~/.vim/snippets/html", "php")
+    catch
+      call ExtractSnips("~/vimfiles/snippets/html", "eruby")
+      call ExtractSnips("~/vimfiles/snippets/html", "xhtml")
+      call ExtractSnips("~/vimfiles/snippets/html", "php")
+    endtry
+endfunction
 
 " Color scheme
 if has("gui_running")
