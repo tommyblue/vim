@@ -2,7 +2,7 @@
 
 In questo repository trovate le configurazioni del mio Vim. Per utilizzarlo clonate il repository:
 
-    git clone git@github.com:tommyblue/vim.git ~/.vim/
+    git clone https://github.com/tommyblue/vim.git ~/.vim/
 
 aggiornate i moduli git:
 
