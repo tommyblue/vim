@@ -18,6 +18,14 @@ Se usate gVim o MacVim è necessario anche creare il file `~/.gvimrc` con:
 
     source ~/.vim/gvimrc
 
+Il plugin TagBar richiede l'installazione di exuberant-ctags:
+
+    # Debian/Ubuntu
+    sudo apt-get install exuberant-ctags
+
+    # Fedora
+    sudo yum install ctags-etags
+
 Per installare SuperTab bisogna scaricare il file `vba` da [http://www.vim.org/scripts/script.php?script_id=1643](http://www.vim.org/scripts/script.php?script_id=1643) aprirlo con Vim e farne il source con:
 
     :so %
