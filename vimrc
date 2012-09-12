@@ -31,8 +31,9 @@ Bundle 'rstacruz/sparkup.git'
 Bundle 'Lokaltog/vim-easymotion.git'
 Bundle 'Raimondi/delimitMate.git'
 Bundle 'docunext/closetag.vim.git'
-Bundle 'majutsushi/tagbar'
+"Bundle 'majutsushi/tagbar'
 Bundle 'vim-scripts/Better-CSS-Syntax-for-Vim.git'
+Bundle 'vim-ruby/vim-ruby.git'
 
 " vim-scripts repos
 Bundle 'L9'
@@ -90,7 +91,7 @@ let g:syntastic_enable_signs=1
 
 " NERDTree settings
 nmap wm :NERDTree<cr>
-let NERDTreeIgnore=['\.swp$']
+let NERDTreeIgnore=['\.swp$', '\.pyc$']
 silent! nmap <silent> <Leader>p :NERDTreeToggle<CR>
 
 "nnoremap <Esc>A <up>
@@ -112,12 +113,9 @@ nmap <Up> gk
 set fo=l
 
 " Tagbar
-let g:tagbar_usearrows = 1
-nnoremap <leader>l :TagbarToggle<CR>
-"autocmd FileType rb nested :TagbarOpen
-"autocmd VimEnter * nested :TagbarOpen
-autocmd BufEnter * nested :call tagbar#autoopen(0)
-"autocmd BufLeave * nested :call tagbar#autoclose
+"let g:tagbar_usearrows = 1
+"nnoremap <leader>l :TagbarToggle<CR>
+"autocmd BufEnter * nested :call tagbar#autoopen(0)
 
 " Vim tabs navigation
 nmap <leader>] :tabn<CR>
