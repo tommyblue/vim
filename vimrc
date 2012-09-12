@@ -34,6 +34,7 @@ Bundle 'docunext/closetag.vim.git'
 "Bundle 'majutsushi/tagbar'
 Bundle 'vim-scripts/Better-CSS-Syntax-for-Vim.git'
 Bundle 'vim-ruby/vim-ruby.git'
+Bundle 'kchmck/vim-coffee-script.git'
 
 " vim-scripts repos
 Bundle 'L9'
