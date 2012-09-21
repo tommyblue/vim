@@ -42,7 +42,8 @@ Bundle 'FuzzyFinder'
 " non github repos
 Bundle 'git://git.wincent.com/command-t.git'
 
-filetype plugin indent on     " required!
+filetype indent on     " required!
+filetype plugin on     " Snipmate
 
 " Shortcut for tcomment
 map <leader>c <c-_><c-_>
@@ -70,9 +71,9 @@ set ignorecase  "case-insensitive search
 set guioptions-=T
 
 "indent settings
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set cindent
 set smartindent
 set autoindent
