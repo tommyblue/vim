@@ -228,6 +228,10 @@ if has("gui_running")
         set guifont=Consolas:h12
         set enc=utf-8
     endif
+    " Evito la chiusura della GUI
+    cnoreabbrev <expr> q ((getcmdtype() is# ':' && getcmdline() is# 'q')?('tabclose'):('q'))
+    cnoreabbrev <expr> x ((getcmdtype() is# ':' && getcmdline() is# 'x')?('w<CR>:tabclose'):('q'))
+    cnoreabbrev <expr> wq ((getcmdtype() is# ':' && getcmdline() is# 'wq')?('w<CR>:tabclose'):('q'))
 else
     "dont load csapprox if there is no gui support - silences an annoying warning
     let g:CSApprox_loaded = 1
@@ -245,3 +249,4 @@ else
         endif
     endif
 endif
+
