@@ -40,3 +40,9 @@
 [submodule "bundle/vim-ruby"]
     path = bundle/vim-ruby
     url = git://github.com/vim-ruby/vim-ruby
+[submodule "bundle/Better-CSS-Syntax-for-Vim"]
+	path = bundle/Better-CSS-Syntax-for-Vim
+	url = git://github.com/ChrisYip/Better-CSS-Syntax-for-Vim.git
+[submodule "bundle/sparkup"]
+	path = bundle/sparkup
+	url = git://github.com/rstacruz/sparkup
