@@ -1,3 +1,42 @@
 [submodule "bundle/vundle"]
     path = bundle/vundle
     url = git://github.com/gmarik/vundle.git
+[submodule "bundle/FuzzyFinder"]
+    path = bundle/FuzzyFinder
+    url = git://github.com/vim-scripts/FuzzyFinder
+[submodule "bundle/L9"]
+    path = bundle/L9
+    url = git://github.com/vim-scripts/L9
+[submodule "bundle/command-t"]
+    path = bundle/command-t
+    url = git://github.com/wincent/Command-T
+[submodule "bundle/delimitMate"]
+    path = bundle/delimitMate
+    url = git://github.com/Raimondi/delimitMate
+[submodule "bundle/nerdtree"]
+    path = bundle/nerdtree
+    url = git://github.com/scrooloose/nerdtree
+[submodule "bundle/tagbar"]
+    path = bundle/tagbar
+    url = git://github.com/majutsushi/tagbar
+[submodule "bundle/tcomment_vim"]
+    path = bundle/tcomment_vim
+    url = git://github.com/tomtom/tcomment_vim
+[submodule "bundle/vim-coffee-script"]
+    path = bundle/vim-coffee-script
+    url = git://github.com/kchmck/vim-coffee-script
+[submodule "bundle/vim-easymotion"]
+    path = bundle/vim-easymotion
+    url = git://github.com/Lokaltog/vim-easymotion
+[submodule "bundle/vim-fugitive"]
+    path = bundle/vim-fugitive
+    url = git://github.com/tpope/vim-fugitive
+[submodule "bundle/vim-rails"]
+    path = bundle/vim-rails
+    url = git://github.com/tpope/vim-rails
+[submodule "bundle/vim-surround"]
+    path = bundle/vim-surround
+    url = git://github.com/tpope/vim-surround
+[submodule "bundle/vim-ruby"]
+    path = bundle/vim-ruby
+    url = git://github.com/vim-ruby/vim-ruby
